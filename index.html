@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="description" content="GG und hallo meine Freunde!" />
+    <title>GG Preisrechner | juse122</title>
+
+    <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png" /> -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script type="module" src="https://kit.fontawesome.com/70ed03f35c.js" crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/script.js"></script>
+</head>
+
+<body>
+    <div class="page-container">
+    
+        <header class="header">
+            <p>Rechnen mit</p>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a class="nav-active" href="#">EK</a></li>
+                    <li><a href="#">VK</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="main-container">
+
+                <section class="main-input-container">
+                    <div class="main-pp-input">
+                        <div class="main-pp-input-cost">
+                            <label for="cost">Einkaufspreis in Euro</label>
+                            <input type="number" name="cost" id="cost" placeholder="0.00">
+                        </div>
+                        <div class="main-pp-input-margin">
+                            <label for="margin">Gewinn in Euro</label>
+                            <input type="number" name="margin" id="margin" placeholder="0.00">
+                        </div>
+                    </div>
+                    <h2 class="main-pp-results">Verkaufspreis in Euro pro Channel (brutto)</h2>
+                </section>
+
+
+                    <section class="main-output-container"></section>
+
+
+
+                    <section class="main-pp-settings">
+                        <div class="tax-button">
+                            <input type="checkbox" name="tax-switch" id="tax-switch" class="tax-switch">
+                            <div class="label">
+                                <span>Netto</span>
+                            </div>
+                            <div class="tax-button-bg"></div>
+                        </div>
+                        <a href="#"><i class="fa-solid fa-gear fa-2x"></i>Konfiguration</a>    
+                    </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+
+        </footer>
+
+    </div>
+</body>
+</html>
+
+<!--
+rechnerfunktionen:
+einkaufspreis netto/brutto -> was bleibt auf plattformen übrig?
+netto/brutto preis wie hoch ansetzen für x€ gewinn netto/brutto?
+was bleibt bei verkaufspreis x auf plattformen übrig netto/brutto?
+
+Features:
+- channels ausblenden
+- settings mit paketkosten, label, versandkosten etc
+- provisionshöhe, versandkostenhöhe einstellen
+max. 7 zeichen eingabe
+-->

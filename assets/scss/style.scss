@@ -1,0 +1,426 @@
+// General settings //
+
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+    all: unset;
+    display: revert;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    color: #adbac7;
+    background-color: #22272e;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+
+// Main styling //
+
+.page-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 0 calc(0.8rem + env(safe-area-inset-right)) 0 calc(0.8rem + env(safe-area-inset-left));
+}
+
+.main-input-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+// Output styling //
+
+.main-output-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.main-output-channel {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.main-output-channel-value {
+    width: 8rem;
+    background-color: #1c2026;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.main-output-channel-name {
+    width: 10rem;
+    font-size: 1.5rem;
+}
+
+.main-output-channel-config {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    width: 7rem;
+    gap: 0.2rem;
+}
+
+.main-output-channel-config-provision, .main-output-channel-config-shipping {
+    font-size: 1rem;
+    font-style: italic;
+    color: #768390;
+}
+
+
+// Page styling //
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #2d333b;
+    color: #cdd9e5b3;
+
+    p {
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.04rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.nav-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 1.5rem;
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        width: 10rem;
+        padding: 0 2rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+        line-height: 4.4rem;
+        text-align: center;
+        border-radius: 2.2rem;
+        border: 0.1rem solid #cdd9e51a;
+        background-color: #373e47;
+
+        &:hover {
+            border: 0.1rem solid #39d353;
+            background-color: #444c56;
+            color: #adbac7;
+            box-shadow: 0 1px 5px 0 #0007;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    padding: 2rem;
+    color: #adbac7;
+}
+
+.main-pp-container {
+    max-width: 36rem;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+// Main Input CSS
+
+.main-pp-input, .main-pp-output {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.main-pp-input-cost, .main-pp-input-margin {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1.5rem;
+
+    label {
+        display: block;
+        width: 14rem;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    input {
+        display: block;
+        width: 8rem;
+        background-color: #2d333b;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-size: 1.4rem;
+        text-align: center;
+
+        &:focus {
+            outline: 0.1rem solid #adbac7;
+            box-shadow: 0 0 1.5rem 0 #adbac777;
+            background-color: #373e47;
+        }
+    }
+
+    a {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+}
+
+.main-pp-input-switch {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: #768390;
+
+    a {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 5.5rem;
+        text-align: center;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+    }
+}
+
+.main-pp-input-switch-active {
+    background-color: #2d333b;
+    color: #adbac7;
+}
+
+// Main Output CSS
+
+.main-pp-results {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+
+.main-pp-output-price, .main-pp-output-channel {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1.5rem;
+
+    input {
+        display: block;
+        width: 8rem;
+        background-color: #1c2026;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}
+
+.main-pp-output-channel-name {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    p {
+        display: inline-block;
+        width: 9rem;
+        font-size: 1.4rem;
+        line-height: 3.9rem;
+    }
+}
+
+.main-pp-output-channel-name-config {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: center;
+
+    p {
+        width: unset;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        font-style: italic;
+        color: #768390;
+    }
+}
+
+.main-pp-settings {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    a {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+}
+
+// my button #2d333b
+
+.tax-button {
+    position: relative;
+    width: 10.8rem;
+    height: 3.6rem;
+    border-radius: 1.8rem;
+    overflow: hidden;
+}
+
+.label, .tax-button-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.tax-switch {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.label {
+    z-index: 2;
+}
+
+.tax-button-bg {
+    width: 100%;
+    height: 100%;
+    background-color: #1c2026;
+    z-index: 1;
+}
+
+.tax-button .label:before, .tax-button .label:after, .tax-button .label span {
+    position: absolute;
+    top: 0px;
+    width: 5.4rem;
+    height: 3.6rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: 3.5rem;
+    border-radius: 1.8rem;
+    transition: 0.2s ease all;
+}
+
+.tax-button .label:before {
+    content: "";
+    left: 0rem;
+    background-color: #2d333b;
+}
+
+.tax-button .label:after {
+    content: "Brutto";
+    right: 0rem;
+    color: #768390;
+}
+
+.tax-button .label span {
+    left: 0rem;
+    color: #adbac7;
+    z-index: 1;
+}
+
+.tax-button .tax-switch:checked+.label span {
+    color: #768390;
+}
+
+.tax-button .tax-switch:checked+.label:before {
+    left: 5.4rem;
+    background-color: #2d333b;
+}
+
+.tax-button .tax-switch:checked+.label:after {
+    color: #adbac7;
+}
