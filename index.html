@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#fff" />
+    <meta name="theme-color" content="#22272e" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <meta name="description" content="GG und hallo meine Freunde!" />
-    <title>GG Preisrechner | juse122</title>
+    <title>GG Preisrechner</title>
 
     <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png" /> -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -21,53 +21,47 @@
 <body>
     <div class="page-container">
     
-        <header class="header">
-            <p>Rechnen mit</p>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a class="nav-active" href="#">EK</a></li>
-                    <li><a href="#">VK</a></li>
-                </ul>
-            </nav>
+        <header>
+            <section class="header-container">
+                <h1 class="header-headline">Rechnen mit</h1>
+                <nav class="header-navigation-wrapper">
+                    <ul class="header-navigation-list">
+                        <li class="header-navigation-entry"><button type="button" class="active">Einkaufspreis</button></li>
+                        <li class="header-navigation-entry"><button type="button">Verkaufspreis</button></li>
+                    </ul>
+                </nav>
+            </section>
         </header>
 
         <main>
             <div class="main-container">
-
                 <section class="main-input-container">
-                    <div class="main-pp-input">
-                        <div class="main-pp-input-cost">
-                            <label for="cost">Einkaufspreis in Euro</label>
-                            <input type="number" name="cost" id="cost" placeholder="0.00">
+                    <div class="main-input-field-wrapper">
+                        <div class="main-input-field">
+                            <label for="input-price">Einkaufspreis<br />in Euro (netto)</label>
+                            <input type="number" name="price" id="input-price" placeholder="0.00" />
                         </div>
-                        <div class="main-pp-input-margin">
-                            <label for="margin">Gewinn in Euro</label>
-                            <input type="number" name="margin" id="margin" placeholder="0.00">
+                        <div class="main-input-field">
+                            <label for="input-profit">Gewinn<br />in Euro (netto)</label>
+                            <input type="number" name="profit" id="input-profit" placeholder="0.00" />
                         </div>
                     </div>
-                    <h2 class="main-pp-results">Verkaufspreis in Euro pro Channel (brutto)</h2>
                 </section>
-
-
-                    <section class="main-output-container"></section>
-
-
-
-                    <section class="main-pp-settings">
-                        <div class="tax-button">
-                            <input type="checkbox" name="tax-switch" id="tax-switch" class="tax-switch">
-                            <div class="label">
-                                <span>Netto</span>
-                            </div>
-                            <div class="tax-button-bg"></div>
-                        </div>
-                        <a href="#"><i class="fa-solid fa-gear fa-2x"></i>Konfiguration</a>    
-                    </section>
+                <section class="main-output-container">
+                    <h2 class="main-output-headline">Verkaufspreis in Euro pro Channel (brutto)</h2>
+                </section>
+                <section class="main-settings-container">
+                    <button type="button" class="main-settings-button"><i class="fa-solid fa-gear fa-2x"></i>Konfiguration</button>    
+                </section>
             </div>
         </main>
 
-        <footer class="footer">
-
+        <footer>
+            <section class="footer-container">
+                <div class="footer-copyright">
+                    <p class="footer-copyright-text">© 2023 juse122</p>
+                </div>
+            </section>
         </footer>
 
     </div>
@@ -79,6 +73,15 @@ rechnerfunktionen:
 einkaufspreis netto/brutto -> was bleibt auf plattformen übrig?
 netto/brutto preis wie hoch ansetzen für x€ gewinn netto/brutto?
 was bleibt bei verkaufspreis x auf plattformen übrig netto/brutto?
+
+tax button:
+    <div class="tax-button">
+        <input type="checkbox" name="tax-switch" id="tax-switch" class="tax-switch">
+        <div class="label">
+            <span>Netto</span>
+        </div>
+        <div class="tax-button-bg"></div>
+    </div>
 
 Features:
 - channels ausblenden

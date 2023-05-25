@@ -1,10 +1,11 @@
-import { shopData } from "./data.js";
+import { shopData, VAT } from "./data.js";
 
 const channelContainerElement = document.querySelector(".main-output-container");
-const priceEntryElement = document.querySelector("#cost");
-const profitEntryElement = document.querySelector("#margin");
+const priceEntryElement = document.querySelector("#input-price");
+const profitEntryElement = document.querySelector("#input-profit");
 
 shopData.forEach(channel => {
+
     const channelEntry = `
     <div class="main-output-channel">
         <input type="text" class="main-output-channel-value" placeholder="0.00" readonly />
@@ -20,13 +21,27 @@ shopData.forEach(channel => {
 });
 
 const calculateSellingPrice = () => {
+
     const priceValueElements = document.querySelectorAll(".main-output-channel-value");
 
-    for (let i = 0; i < channelContainerElement.childElementCount; i++) {
+    for (let i = 0; i < priceValueElements.length; i++) {
         if (priceEntryElement.value == 0 && profitEntryElement.value == 0) {
+            
             priceValueElements[i].value = "";
-        } else {        
-        priceValueElements[i].value = Number(((Number(priceEntryElement.value) + Number(profitEntryElement.value)) * (1 + shopData[i].percentageProvision / 100) + shopData[i].flatProvision) * 1.19).toFixed(2);
+
+        } else if (shopData[i].shopName === "Cardmarket") {
+            
+            const percentageValueTotal = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
+            const percentageValueShipping = (1 - (VAT / (1 + VAT)));
+
+            priceValueElements[i].value = ((Number(priceEntryElement.value) + Number(profitEntryElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValueShipping)) / percentageValueTotal).toFixed(2);
+
+        } else {
+            
+            const percentageValue = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
+
+            priceValueElements[i].value = ((Number(priceEntryElement.value) + Number(profitEntryElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValue)) / percentageValue).toFixed(2);
+
         };
     };
 };
