@@ -20,7 +20,7 @@ html, body {
 }
 
 body {
-  background-color: #22272e;
+  background-color: #2d333b;
   color: #fff;
 }
 
@@ -33,6 +33,7 @@ button {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
+  background-color: #22272e;
   gap: 1.6rem;
   height: 100vh;
 }
@@ -202,6 +203,7 @@ button {
   padding: 1.2rem 2.4rem;
   border-radius: 2.8rem;
   background-color: #373e47;
+  color: rgba(205, 217, 229, 0.7019607843);
   border: 0.1rem solid rgba(205, 217, 229, 0.1019607843);
   font-size: 1.2rem;
 }
@@ -232,17 +234,6 @@ button {
 .footer-copyright-text {
   padding: 1.6rem;
   font-size: 1.2rem;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  select,
-  select:focus,
-  textarea,
-  textarea:focus,
-  input,
-  input:focus {
-    font-size: 1.5rem;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

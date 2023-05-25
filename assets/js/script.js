@@ -11,8 +11,8 @@ shopData.forEach(channel => {
         <input type="text" class="main-output-channel-value" placeholder="0.00" readonly />
         <p class="main-output-channel-name">${ channel.shopName }</p>
         <div class="main-output-channel-config">
-            <p class="main-output-channel-config-provision">${ channel.percentageProvision }% + ${ channel.flatProvision }€</p>
-            <p class="main-output-channel-config-shipping">Versand: ${ channel.shippingCost }€</p>
+            <p class="main-output-channel-config-provision">${ channel.percentageProvision }% + ${ channel.flatProvision === 0 ? "0.00" : channel.flatProvision }€</p>
+            <p class="main-output-channel-config-shipping">Versand: ${ channel.shippingCost === 0 ? "0.00" : channel.shippingCost }€</p>
         </div>
     </div>
     `;
