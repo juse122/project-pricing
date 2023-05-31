@@ -13,9 +13,6 @@
 
     <!-- <link rel="icon" type="image/png" href="assets/img/favicon.png" /> -->
     <link rel="stylesheet" href="assets/css/style.css" />
-
-    <script type="module" src="https://kit.fontawesome.com/70ed03f35c.js" crossorigin="anonymous"></script>
-    <script type="module" src="assets/js/script.js"></script>
 </head>
 
 <body>
@@ -26,8 +23,8 @@
                 <h1 class="header-headline">Rechnen mit</h1>
                 <nav class="header-navigation-wrapper">
                     <ul class="header-navigation-list">
-                        <li class="header-navigation-entry" id="ek"><button type="button">Einkaufspreis</button></li>
-                        <li class="header-navigation-entry" id="vk"><button type="button">Verkaufspreis</button></li>
+                        <li class="header-navigation-entry"><button type="button" id="ek" class="active">Einkaufspreis</button></li>
+                        <li class="header-navigation-entry"><button type="button" id="vk">Verkaufspreis</button></li>
                     </ul>
                 </nav>
             </section>
@@ -38,18 +35,24 @@
                 <section class="main-input-container">
                     <div class="main-input-field-wrapper">
                         <div class="main-input-field">
-                            <label for="input-price">Einkaufspreis<br />in Euro (netto)</label>
-                            <input type="number" name="price" id="input-price" placeholder="0.00" />
+                            <label for="input-1">Einkaufspreis<br />in Euro</label>
+                            <input type="number" name="price" id="input-1" placeholder="0.00" />
+                            <div class="main-input-field-switch-wrapper">
+                                <button id="net-1" class="main-input-field-switch active">netto</button>
+                                <button id="gross-1" class="main-input-field-switch">brutto</button>
+                            </div>
                         </div>
                         <div class="main-input-field">
-                            <label for="input-profit">Gewinn<br />in Euro (netto)</label>
-                            <input type="number" name="profit" id="input-profit" placeholder="0.00" />
+                            <label for="input-2">Gewinn<br />in Euro</label>
+                            <input type="number" name="profit" id="input-2" placeholder="0.00" />
+                            <div class="main-input-field-switch-wrapper">
+                                <button id="net-2" class="main-input-field-switch active">netto</button>
+                                <button id="gross-2" class="main-input-field-switch">brutto</button>
+                            </div>
                         </div>
                     </div>
                 </section>
-                <section class="main-output-container">
-                    <h2 class="main-output-headline">Verkaufspreis in Euro pro Channel (brutto)</h2>
-                </section>
+                <section class="main-output-container"></section>
                 <section class="main-settings-container">
                     <button type="button" class="main-settings-button"><i class="fa-solid fa-gear fa-2x"></i>Settings</button>    
                 </section>
@@ -65,15 +68,14 @@
         </footer>
 
     </div>
+
+    <script type="module" src="https://kit.fontawesome.com/70ed03f35c.js" crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/script.js"></script>
+
 </body>
 </html>
 
 <!--
-rechnerfunktionen:
-einkaufspreis netto/brutto -> was bleibt auf plattformen übrig?
-netto/brutto preis wie hoch ansetzen für x€ gewinn netto/brutto?
-was bleibt bei verkaufspreis x auf plattformen übrig netto/brutto?
-
 tax button:
     <div class="tax-button">
         <input type="checkbox" name="tax-switch" id="tax-switch" class="tax-switch">

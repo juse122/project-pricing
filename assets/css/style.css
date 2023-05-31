@@ -59,23 +59,29 @@ button {
 }
 
 .header-navigation-entry button {
+  width: 17rem;
   padding: 1.6rem 2rem;
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
+  text-align: center;
   background-color: #373e47;
-  border: 0.1rem solid rgba(205, 217, 229, 0.1019607843);
+  border: 0.1rem solid #373e47;
   border-radius: 2.5rem;
 }
-.header-navigation-entry button:hover, .header-navigation-entry button:focus {
+.header-navigation-entry button.active {
   background-color: #444c56;
-  color: #adbac7;
-  border: 0.1rem solid #39d353;
-  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.4666666667);
+  color: #fff;
+  border-color: #39d353;
+}
+.header-navigation-entry button:hover {
+  background-color: #444c56;
+  color: #fff;
+  border-color: #39d353;
 }
 
 .main-container {
-  gap: 3.2rem;
+  gap: 4rem;
   width: 100%;
   max-width: 36rem;
   margin: 0 auto;
@@ -105,9 +111,31 @@ button {
   background-color: #2d333b;
 }
 .main-input-field input:focus {
-  background-color: #373e47;
-  outline: 0.1rem solid #adbac7;
-  box-shadow: 0 0 1.5rem 0 rgba(173, 186, 199, 0.4666666667);
+  background-color: #444c56;
+  outline: 0.1rem solid #39d353;
+}
+
+.main-input-field-switch-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.main-input-field-switch {
+  width: 5.2rem;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  background-color: #22272e;
+  color: #768390;
+  border-radius: 1.3rem;
+}
+.main-input-field-switch.active {
+  background-color: #2d333b;
+  color: #fff;
 }
 
 .main-output-container {
@@ -181,10 +209,6 @@ button {
 .footer-copyright-text {
   padding: 1.6rem;
   font-size: 1.2rem;
-}
-
-#vk {
-  display: none;
 }
 
 .main-settings-container {

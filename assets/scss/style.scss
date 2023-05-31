@@ -66,19 +66,26 @@ button {
 
 .header-navigation-entry {
     button {
+        width: 17rem;
         padding: 1.6rem 2rem;
         font-size: 1.5rem;
         font-weight: 600;
         text-transform: uppercase;
+        text-align: center;
         background-color: #373e47;
-        border: 0.1rem solid #cdd9e51a;
+        border: 0.1rem solid #373e47;
         border-radius: 2.5rem;
 
-        &:hover, &:focus {
+        &.active {
             background-color: #444c56;
-            color: #adbac7;
-            border: 0.1rem solid #39d353;
-            box-shadow: 0 1px 5px 0 #0007;
+            color: #fff;
+            border-color: #39d353;
+        }
+
+        &:hover {
+            background-color: #444c56;
+            color: #fff;
+            border-color: #39d353;
         }
     }
 }
@@ -88,7 +95,7 @@ button {
 // Main styling //
 
 .main-container {
-    gap: 3.2rem;
+    gap: 4rem;
     width: 100%;
     max-width: 36rem;
     margin: 0 auto;
@@ -123,10 +130,33 @@ button {
         background-color: #2d333b;
 
         &:focus {
-            background-color: #373e47;
-            outline: 0.1rem solid #adbac7;
-            box-shadow: 0 0 1.5rem 0 #adbac777;
+            background-color: #444c56;
+            outline: 0.1rem solid #39d353;
         }
+    }
+}
+
+.main-input-field-switch-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.main-input-field-switch {
+    width: 5.2rem;
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    background-color: #22272e;
+    color: #768390;
+    border-radius: 1.3rem;
+
+    &.active {
+        background-color: #2d333b;
+        color: #fff;
     }
 }
 
@@ -219,10 +249,6 @@ button {
 
 
 // Unfinished parts //
-
-#vk {
-    display: none;
-}
 
 .main-settings-container {
     display: none;
