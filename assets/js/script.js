@@ -38,7 +38,12 @@ const generatePurchasePriceEntries = () => {
     </div>
     `;
     
-    channelContainerElement.innerHTML = `<h2 class="main-output-headline">Verkaufspreis in Euro pro Channel (brutto)</h2>`;
+    channelContainerElement.innerHTML = `
+    <div class="main-output-headline-wrapper">
+        <h2 class="main-output-headline">Verkaufspreis in Euro (brutto)</h2>
+        <button id="settings" class="main-output-headline-button"><i class="fa-solid fa-gear"></i></button>
+    </div>
+    `;
     
     shopData.forEach(channel => {
 
@@ -102,14 +107,14 @@ const calculateSellingPrice = () => {
         } else if (firstNetButtonElement.classList.contains("active")) {
             if (shopData[i].shopName === "Cardmarket") {
             
-                const percentageValueTotal = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT / (1 + VAT)));
+                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
 
                 priceValueElements[i].value = ((Number(firstInputElement.value) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValueShipping)) / percentageValueTotal).toFixed(2);
 
             } else {
                 
-                const percentageValue = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
 
                 priceValueElements[i].value = ((Number(firstInputElement.value) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValue)) / percentageValue).toFixed(2);
 
@@ -117,14 +122,14 @@ const calculateSellingPrice = () => {
         } else {
             if (shopData[i].shopName === "Cardmarket") {
             
-                const percentageValueTotal = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT / (1 + VAT)));
+                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
 
                 priceValueElements[i].value = ((Number(firstInputElement.value / 1.19) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValueShipping)) / percentageValueTotal).toFixed(2);
 
             } else {
                 
-                const percentageValue = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
 
                 priceValueElements[i].value = ((Number(firstInputElement.value / 1.19) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValue)) / percentageValue).toFixed(2);
 
@@ -158,7 +163,12 @@ const generateSellingPriceEntries = () => {
     </div>
     `;
     
-    channelContainerElement.innerHTML = `<h2 class="main-output-headline">Gewinn in Euro pro Channel (netto)</h2>`;
+    channelContainerElement.innerHTML = `
+    <div class="main-output-headline-wrapper">
+        <h2 class="main-output-headline">Gewinn in Euro (netto)</h2>
+        <button id="settings" class="main-output-headline-button"><i class="fa-solid fa-gear"></i></button>
+    </div>
+    `;
     
     shopData.forEach(channel => {
 
@@ -222,26 +232,26 @@ const calculateProfit = () => {
         } else if (secondNetButtonElement.classList.contains("active")) {
             if (shopData[i].shopName === "Cardmarket") {
         
-                const percentageValueTotal = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT / (1 + VAT)));
+                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
 
                 priceValueElements[i].value = ((Number(firstInputElement.value) * percentageValueTotal + shopData[i].shippingCost * percentageValueShipping) - shopData[i].flatProvision - Number(secondInputElement.value)).toFixed(2);
             } else {
 
-                const percentageValue = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
 
                 priceValueElements[i].value = (((Number(firstInputElement.value) + shopData[i].shippingCost) * percentageValue) - shopData[i].flatProvision - Number(secondInputElement.value)).toFixed(2);
             };
         } else {
             if (shopData[i].shopName === "Cardmarket") {
         
-                const percentageValueTotal = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT / (1 + VAT)));
+                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
 
                 priceValueElements[i].value = ((Number(firstInputElement.value) * percentageValueTotal + shopData[i].shippingCost * percentageValueShipping) - shopData[i].flatProvision - Number(secondInputElement.value / 1.19)).toFixed(2);
             } else {
 
-                const percentageValue = (1 - (VAT / (1 + VAT)) - (shopData[i].percentageProvision / 100));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
 
                 priceValueElements[i].value = (((Number(firstInputElement.value) + shopData[i].shippingCost) * percentageValue) - shopData[i].flatProvision - Number(secondInputElement.value / 1.19)).toFixed(2);
             };
@@ -278,3 +288,9 @@ sellingPriceButtonElement.addEventListener("click", () => {
 // Initial element generation //
 
 generatePurchasePriceEntries();
+
+
+
+// Export //
+
+export { purchasePriceButtonElement, generatePurchasePriceEntries, generateSellingPriceEntries };
