@@ -1,4 +1,5 @@
 import { shopData, VAT } from "./data.js";
+import { showModal } from "./modal.js";
 
 const purchasePriceButtonElement = document.querySelector("#ek");
 const sellingPriceButtonElement = document.querySelector("#vk");
@@ -52,8 +53,8 @@ const generatePurchasePriceEntries = () => {
         <input type="text" name="channel-output-value" class="main-output-channel-value" placeholder="0.00" readonly />
         <p class="main-output-channel-name">${ channel.shopName }</p>
         <div class="main-output-channel-config">
-            <p class="main-output-channel-config-provision">${ channel.percentageProvision }% + ${ channel.flatProvision === 0 ? "0.00" : channel.flatProvision }€</p>
-            <p class="main-output-channel-config-shipping">Versand: ${ channel.shippingCost === 0 ? "0.00" : channel.shippingCost }€</p>
+            <p class="main-output-channel-config-provision">${ channel.percentageProvision.toFixed(2) }% + ${ channel.flatProvision.toFixed(2) }€</p>
+            <p class="main-output-channel-config-shipping">Versand: ${ channel.shippingCost.toFixed(2) }€</p>
         </div>
     </div>
     `;
@@ -91,6 +92,9 @@ const generatePurchasePriceEntries = () => {
         
         calculateSellingPrice();
     });
+
+    const settingsButtonElement = document.querySelector("#settings");
+    settingsButtonElement.addEventListener("click", showModal);
 };
 
 
@@ -177,8 +181,8 @@ const generateSellingPriceEntries = () => {
         <input type="text" name="channel-output-value" class="main-output-channel-value" placeholder="0.00" readonly />
         <p class="main-output-channel-name">${ channel.shopName }</p>
         <div class="main-output-channel-config">
-            <p class="main-output-channel-config-provision">${ channel.percentageProvision }% + ${ channel.flatProvision === 0 ? "0.00" : channel.flatProvision }€</p>
-            <p class="main-output-channel-config-shipping">Versand: ${ channel.shippingCost === 0 ? "0.00" : channel.shippingCost }€</p>
+            <p class="main-output-channel-config-provision">${ channel.percentageProvision.toFixed(2) }% + ${ channel.flatProvision.toFixed(2) }€</p>
+            <p class="main-output-channel-config-shipping">Versand: ${ channel.shippingCost.toFixed(2) }€</p>
         </div>
     </div>
     `;
@@ -216,6 +220,9 @@ const generateSellingPriceEntries = () => {
         
         calculateProfit();
     });
+
+    const settingsButtonElement = document.querySelector("#settings");
+    settingsButtonElement.addEventListener("click", showModal);
 };
 
 

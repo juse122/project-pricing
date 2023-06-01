@@ -2,7 +2,6 @@ import { shopData, VAT } from "./data.js";
 import { purchasePriceButtonElement, generatePurchasePriceEntries, generateSellingPriceEntries } from "./script.js";
 
 const pageContainerElement = document.querySelector(".page-container");
-const settingsButtonElement = document.querySelector("#settings");
 
 
 
@@ -18,6 +17,7 @@ const generateModal = () => {
     </div>
     `);
 
+    const modalWrapperElement = document.querySelector(".main-modal-wrapper");
     const modalContainerElement = document.querySelector(".main-modal-container");
 
     shopData.forEach(channel => {
@@ -56,7 +56,6 @@ const generateModal = () => {
     </div>
     `);
 
-    const modalWrapperElement = document.querySelector(".main-modal-wrapper");
     const modalCloseElement = document.querySelector(".main-modal-close-button");
     const modalAbortElement = document.querySelector(".main-modal-abort-button");
     
@@ -87,9 +86,9 @@ const generateModal = () => {
 
     const saveChanges = () => {
         for (let i = 0; i < shopData.length; i++) {
-            shopData[i].percentageProvision = document.querySelector(`#provision-percentage-shop-${ i }`).value;
+            shopData[i].percentageProvision = Number(document.querySelector(`#provision-percentage-shop-${ i }`).value);
             shopData[i].flatProvision = Number(document.querySelector(`#provision-flat-shop-${ i }`).value);
-            shopData[i].shippingCost = document.querySelector(`#shipping-shop-${ i }`).value;
+            shopData[i].shippingCost = Number(document.querySelector(`#shipping-shop-${ i }`).value);
         };
 
         VAT.value = Number(document.querySelector("#vat-data").value);
@@ -102,6 +101,7 @@ const generateModal = () => {
 
         if (purchasePriceButtonElement.classList.contains("active")) {
             generatePurchasePriceEntries();
+
         } else generateSellingPriceEntries();
     });
 };
@@ -112,13 +112,17 @@ generateModal();
 
 // Show modal element //
 
-const modalElement = document.querySelector(".main-modal-wrapper");
-const modalContainerElement = document.querySelector(".main-modal-container");
-
 const showModal = () => {
+    const modalElement = document.querySelector(".main-modal-wrapper");
+    const modalContainerElement = document.querySelector(".main-modal-container");
+    
     modalElement.style.display = "flex";
     modalContainerElement.scrollTop = 0;
     document.body.style.overflow = "hidden";
 };
 
-settingsButtonElement.addEventListener("click", showModal);
+
+
+// Export //
+
+export { showModal };
