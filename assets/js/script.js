@@ -63,10 +63,34 @@ const generatePurchasePriceEntries = () => {
     });
 
     firstInputElement = document.querySelector("#input-1");
+
+    firstInputElement.addEventListener("focusin", () => firstInputElement.value = "");
+    firstInputElement.addEventListener("focusout", () => {
+        if (firstInputElement.value === "") {
+            firstInputElement.value = "0.00";
+        } else if (!/[,.]\d{2,}/.test(firstInputElement.value)) {
+            firstInputElement.value = Number(firstInputElement.value).toFixed(2);
+        };
+
+        calculateSellingPrice();
+    });
+
     firstInputElement.addEventListener("input", calculateSellingPrice);
     firstInputElement.removeEventListener("input", calculateProfit);
 
     secondInputElement = document.querySelector("#input-2");
+
+    secondInputElement.addEventListener("focusin", () => secondInputElement.value = "");
+    secondInputElement.addEventListener("focusout", () => {
+        if (secondInputElement.value === "") {
+            secondInputElement.value = "0.00";
+        } else if (!/[,.]\d{2,}/.test(secondInputElement.value)) {
+            secondInputElement.value = Number(secondInputElement.value).toFixed(2);
+        };
+
+        calculateSellingPrice();
+    });
+
     secondInputElement.addEventListener("input", calculateSellingPrice);
     secondInputElement.removeEventListener("input", calculateProfit);
 
@@ -111,31 +135,29 @@ const calculateSellingPrice = () => {
         } else if (firstNetButtonElement.classList.contains("active")) {
             if (shopData[i].shopName === "Cardmarket") {
             
-                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100))
 
-                priceValueElements[i].value = ((Number(firstInputElement.value) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValueShipping)) / percentageValueTotal).toFixed(2);
+                priceValueElements[i].value = ((Number(firstInputElement.value) + Number(secondInputElement.value) + shopData[i].flatProvision) / percentageValue - (shopData[i].shippingCost > 4.99 ? (shopData[i].shippingCost - 4.99) / (1 - (shopData[i].percentageProvision / 100)) : 0)).toFixed(2);
 
             } else {
                 
-                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100))
 
-                priceValueElements[i].value = ((Number(firstInputElement.value) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValue)) / percentageValue).toFixed(2);
+                priceValueElements[i].value = ((Number(firstInputElement.value) + Number(secondInputElement.value) + (shopData[i].shippingCost * (shopData[i].percentageProvision / 100)) + shopData[i].flatProvision) / percentageValue + (shopData[i].shippingCost < 4.99 ? ((4.99 - shopData[i].shippingCost) / (1 - (shopData[i].percentageProvision / 100) * (1 + VAT.value))) : 0)).toFixed(2);
 
             };
         } else {
             if (shopData[i].shopName === "Cardmarket") {
             
-                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100))
 
-                priceValueElements[i].value = ((Number(firstInputElement.value / 1.19) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValueShipping)) / percentageValueTotal).toFixed(2);
+                priceValueElements[i].value = ((Number(firstInputElement.value / (1 + VAT.value)) + Number(secondInputElement.value) + shopData[i].flatProvision) / percentageValue - (shopData[i].shippingCost > 4.99 ? (shopData[i].shippingCost - 4.99) / (1 - (shopData[i].percentageProvision / 100)) : 0)).toFixed(2);
 
             } else {
                 
-                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100))
 
-                priceValueElements[i].value = ((Number(firstInputElement.value / 1.19) + Number(secondInputElement.value) + shopData[i].flatProvision - (shopData[i].shippingCost * percentageValue)) / percentageValue).toFixed(2);
+                priceValueElements[i].value = ((Number(firstInputElement.value / (1 + VAT.value)) + Number(secondInputElement.value) + (shopData[i].shippingCost * (shopData[i].percentageProvision / 100)) + shopData[i].flatProvision) / percentageValue + (shopData[i].shippingCost < 4.99 ? ((4.99 - shopData[i].shippingCost) / (1 - (shopData[i].percentageProvision / 100) * (1 + VAT.value))) : 0)).toFixed(2);
 
             };
         };
@@ -191,10 +213,34 @@ const generateSellingPriceEntries = () => {
     });
 
     firstInputElement = document.querySelector("#input-1");
+
+    firstInputElement.addEventListener("focusin", () => firstInputElement.value = "");
+    firstInputElement.addEventListener("focusout", () => {
+        if (firstInputElement.value === "") {
+            firstInputElement.value = "0.00";
+        } else if (!/[,.]\d{2,}/.test(firstInputElement.value)) {
+            firstInputElement.value = Number(firstInputElement.value).toFixed(2);
+        };
+
+        calculateProfit();
+    });
+
     firstInputElement.addEventListener("input", calculateProfit);
     firstInputElement.removeEventListener("input", calculateSellingPrice);
 
     secondInputElement = document.querySelector("#input-2");
+
+    secondInputElement.addEventListener("focusin", () => secondInputElement.value = "");
+    secondInputElement.addEventListener("focusout", () => {
+        if (secondInputElement.value === "") {
+            secondInputElement.value = "0.00";
+        } else if (!/[,.]\d{2,}/.test(secondInputElement.value)) {
+            secondInputElement.value = Number(secondInputElement.value).toFixed(2);
+        };
+
+        calculateProfit();
+    });
+
     secondInputElement.addEventListener("input", calculateProfit);
     secondInputElement.removeEventListener("input", calculateSellingPrice);
 
@@ -238,29 +284,27 @@ const calculateProfit = () => {
 
         } else if (secondNetButtonElement.classList.contains("active")) {
             if (shopData[i].shopName === "Cardmarket") {
-        
-                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
 
-                priceValueElements[i].value = ((Number(firstInputElement.value) * percentageValueTotal + shopData[i].shippingCost * percentageValueShipping) - shopData[i].flatProvision - Number(secondInputElement.value)).toFixed(2);
+                const channelProvision = Number(firstInputElement.value) * (shopData[i].percentageProvision / 100);
+
+                priceValueElements[i].value = (Number(firstInputElement.value) / (1 + VAT.value) - channelProvision - shopData[i].flatProvision - Number(secondInputElement.value) + (shopData[i].shippingCost > 4.99 ? (shopData[i].shippingCost - 4.99) / (1 + VAT.value) : 0)).toFixed(2);
             } else {
 
-                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const channelProvision = (Number(firstInputElement.value) + shopData[i].shippingCost) * (shopData[i].percentageProvision / 100);
 
-                priceValueElements[i].value = (((Number(firstInputElement.value) + shopData[i].shippingCost) * percentageValue) - shopData[i].flatProvision - Number(secondInputElement.value)).toFixed(2);
+                priceValueElements[i].value = (Number(firstInputElement.value) / (1 + VAT.value) - channelProvision - shopData[i].flatProvision - Number(secondInputElement.value) - (shopData[i].shippingCost < 4.99 ? (4.99 - shopData[i].shippingCost) / (1 + VAT.value) : 0)).toFixed(2);
             };
         } else {
             if (shopData[i].shopName === "Cardmarket") {
-        
-                const percentageValueTotal = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
-                const percentageValueShipping = (1 - (VAT.value / (1 + VAT.value)));
 
-                priceValueElements[i].value = ((Number(firstInputElement.value) * percentageValueTotal + shopData[i].shippingCost * percentageValueShipping) - shopData[i].flatProvision - Number(secondInputElement.value / 1.19)).toFixed(2);
+                const channelProvision = Number(firstInputElement.value) * (shopData[i].percentageProvision / 100);
+
+                priceValueElements[i].value = (Number(firstInputElement.value) / (1 + VAT.value) - channelProvision - shopData[i].flatProvision - Number(secondInputElement.value / (1 + VAT.value)) + (shopData[i].shippingCost > 4.99 ? (shopData[i].shippingCost - 4.99) / (1 + VAT.value) : 0)).toFixed(2);
             } else {
 
-                const percentageValue = (1 - (VAT.value / (1 + VAT.value)) - (shopData[i].percentageProvision / 100));
+                const channelProvision = (Number(firstInputElement.value) + shopData[i].shippingCost) * (shopData[i].percentageProvision / 100);
 
-                priceValueElements[i].value = (((Number(firstInputElement.value) + shopData[i].shippingCost) * percentageValue) - shopData[i].flatProvision - Number(secondInputElement.value / 1.19)).toFixed(2);
+                priceValueElements[i].value = (Number(firstInputElement.value) / (1 + VAT.value) - channelProvision - shopData[i].flatProvision - Number(secondInputElement.value / (1 + VAT.value)) - (shopData[i].shippingCost < 4.99 ? (4.99 - shopData[i].shippingCost) / (1 + VAT.value) : 0)).toFixed(2);
             };
         };
     };

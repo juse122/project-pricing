@@ -62,6 +62,7 @@ const generateModal = () => {
     modalWrapperElement.addEventListener("click", () => {
         modalWrapperElement.style.display = "none";
         document.body.style.overflow = "visible";
+        document.body.style.height = "revert";
     });
 
     modalContainerElement.addEventListener("click", (event) => {
@@ -71,11 +72,13 @@ const generateModal = () => {
     modalCloseElement.addEventListener("click", () => {
         modalWrapperElement.style.display = "none";
         document.body.style.overflow = "visible";
+        document.body.style.height = "revert";
     });
 
     modalAbortElement.addEventListener("click", () => {
         modalWrapperElement.style.display = "none";
         document.body.style.overflow = "visible";
+        document.body.style.height = "revert";
     });
 
 
@@ -98,6 +101,7 @@ const generateModal = () => {
         saveChanges();
         modalWrapperElement.style.display = "none";
         document.body.style.overflow = "visible";
+        document.body.style.height = "revert";
 
         if (purchasePriceButtonElement.classList.contains("active")) {
             generatePurchasePriceEntries();
@@ -119,6 +123,7 @@ const showModal = () => {
     modalElement.style.display = "flex";
     modalContainerElement.scrollTop = 0;
     document.body.style.overflow = "hidden";
+    document.body.style.height = "100%";
 };
 
 
