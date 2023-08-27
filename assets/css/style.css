@@ -94,19 +94,17 @@ button {
 
 .main-input-field {
   gap: 1.6rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 .main-input-field label {
   width: 15rem;
-  font-size: 1.5rem;
   line-height: 1.2;
-  text-align: center;
 }
 .main-input-field input {
   width: 8rem;
   padding: 1.2rem 0;
   border-radius: 1.2rem;
-  font-size: 1.5rem;
-  text-align: center;
   background-color: #2d333b;
 }
 .main-input-field input:focus {
@@ -161,6 +159,7 @@ button {
 .main-output-channel {
   flex-flow: row nowrap;
   gap: clamp(2.4rem, 7.5vw, 4rem);
+  font-size: 1.5rem;
 }
 
 .main-output-channel-value {
@@ -168,13 +167,11 @@ button {
   background-color: #1c2026;
   padding: 1.2rem;
   border-radius: 1.2rem;
-  font-size: 1.5rem;
   text-align: center;
 }
 
 .main-output-channel-name {
   width: 10rem;
-  font-size: 1.5rem;
 }
 
 .main-output-channel-config {
@@ -223,12 +220,16 @@ button {
   font-size: 1.2rem;
 }
 
-.main-modal-wrapper {
-  position: fixed;
-  display: none;
+.main-modal-wrapper, .main-modal-container, .main-modal-close-button, .main-modal-entry, .main-modal-channel-data-wrapper, .main-modal-channel-data-entry, .main-modal-vat-entry, .main-modal-save-button-wrapper {
+  display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.main-modal-wrapper {
+  position: fixed;
+  display: none;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.1333333333);
@@ -239,10 +240,7 @@ button {
 
 .main-modal-container {
   position: relative;
-  display: flex;
-  flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
   gap: 4rem;
   width: calc(100% - 3.2rem);
   max-width: 32rem;
@@ -257,10 +255,6 @@ button {
 
 .main-modal-close-button {
   position: absolute;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   top: 1.6rem;
   right: 1.6rem;
   width: 3.6rem;
@@ -276,10 +270,6 @@ button {
 }
 
 .main-modal-entry {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   gap: 1.2rem;
   width: 100%;
   font-size: 1.5rem;
@@ -290,19 +280,13 @@ button {
 }
 
 .main-modal-channel-data-wrapper {
-  display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
   align-items: flex-start;
   gap: 2.4rem;
   width: 100%;
 }
 
 .main-modal-channel-data-entry {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   gap: 0.8rem;
   text-align: center;
 }
@@ -320,10 +304,7 @@ button {
 }
 
 .main-modal-vat-entry {
-  display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
   gap: 1.6rem;
   width: 100%;
   text-align: center;
@@ -342,10 +323,8 @@ button {
 }
 
 .main-modal-save-button-wrapper {
-  display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  align-items: center;
   width: 100%;
   margin: 1.6rem 0;
   font-size: 1.2rem;

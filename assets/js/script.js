@@ -16,6 +16,12 @@ let secondGrossButtonElement;
 
 
 
+// Set footer copyright year //
+
+document.querySelector("#copyright-year").innerText = new Date().getFullYear();
+
+
+
 // Purchase price calculation functionality //
 
 const generatePurchasePriceEntries = () => {
