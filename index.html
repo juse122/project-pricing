@@ -1,75 +1,13 @@
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#2d333b" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <meta name="description" content="GG und hallo meine Freunde!" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GG Preisrechner</title>
-
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-
-<body>
-    <div class="page-container">
-    
-        <header>
-            <section class="header-container">
-                <h1 class="header-headline">Rechnen mit</h1>
-                <nav class="header-navigation-wrapper">
-                    <ul class="header-navigation-list">
-                        <li class="header-navigation-entry"><button type="button" id="ek" class="active">Einkaufspreis</button></li>
-                        <li class="header-navigation-entry"><button type="button" id="vk">Verkaufspreis</button></li>
-                    </ul>
-                </nav>
-            </section>
-        </header>
-
-        <main>
-            <div class="main-container">
-                <section class="main-input-container">
-                    <div class="main-input-field-wrapper">
-                        <div class="main-input-field">
-                            <label for="input-1">Einkaufspreis<br />in Euro</label>
-                            <input type="number" name="price" id="input-1" placeholder="0.00" />
-                            <div class="main-input-field-switch-wrapper">
-                                <button id="net-1" class="main-input-field-switch active">netto</button>
-                                <button id="gross-1" class="main-input-field-switch">brutto</button>
-                            </div>
-                        </div>
-                        <div class="main-input-field">
-                            <label for="input-2">Gewinn<br />in Euro</label>
-                            <input type="number" name="profit" id="input-2" placeholder="0.00" />
-                            <div class="main-input-field-switch-wrapper">
-                                <button id="net-2" class="main-input-field-switch active">netto</button>
-                                <button id="gross-2" class="main-input-field-switch">brutto</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="main-output-container"></section>
-            </div>
-        </main>
-
-        <footer>
-            <section class="footer-container">
-                <div class="footer-copyright">
-                    <p class="footer-copyright-text">© <span id="copyright-year"></span> juse122</p>
-                </div>
-            </section>
-        </footer>
-
-    </div>
-
-    <script type="module" src="https://kit.fontawesome.com/70ed03f35c.js" crossorigin="anonymous"></script>
-    <script type="module" src="assets/js/script.js"></script>
-    <script type="module" src="assets/js/modal.js"></script>
-
-</body>
-
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
 </html>
