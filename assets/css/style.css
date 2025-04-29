@@ -22,7 +22,23 @@ button {
   cursor: pointer;
 }
 
-.page-container, .header-container, .header-navigation-list, .main-container, .main-input-container, .main-input-field-wrapper, .main-input-field, .main-input-field-switch-wrapper, .main-output-container, .main-output-headline-wrapper, .main-output-headline-button, .main-output-channel, .main-output-channel-config, .main-settings-container, .main-settings-button, .footer-container, .footer-copyright {
+.page-container,
+.header-container,
+.header-navigation-list,
+.main-container,
+.main-input-container,
+.main-input-field-wrapper,
+.main-input-field,
+.main-input-field-switch-wrapper,
+.main-output-container,
+.main-output-headline-wrapper,
+.main-output-headline-button,
+.main-output-channel,
+.main-output-channel-config,
+.main-settings-container,
+.main-settings-button,
+.footer-container,
+.footer-copyright {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -180,7 +196,8 @@ button {
   gap: 0.2rem;
 }
 
-.main-output-channel-config-provision, .main-output-channel-config-shipping {
+.main-output-channel-config-provision,
+.main-output-channel-config-shipping {
   font-size: 1rem;
   font-style: italic;
   color: #768390;
@@ -201,7 +218,8 @@ button {
   border: 0.1rem solid rgba(205, 217, 229, 0.1019607843);
   font-size: 1.2rem;
 }
-.main-settings-button:hover, .main-settings-button:focus {
+.main-settings-button:hover,
+.main-settings-button:focus {
   background-color: #444c56;
   color: #adbac7;
   border: 0.1rem solid #39d353;
@@ -220,7 +238,14 @@ button {
   font-size: 1.2rem;
 }
 
-.main-modal-wrapper, .main-modal-container, .main-modal-close-button, .main-modal-entry, .main-modal-channel-data-wrapper, .main-modal-channel-data-entry, .main-modal-vat-entry, .main-modal-save-button-wrapper {
+.main-modal-wrapper,
+.main-modal-container,
+.main-modal-close-button,
+.main-modal-entry,
+.main-modal-channel-data-wrapper,
+.main-modal-channel-data-entry,
+.main-modal-vat-entry,
+.main-modal-save-button-wrapper {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
