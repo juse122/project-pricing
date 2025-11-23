@@ -4,7 +4,7 @@ const shopData = [
     shopName: "OTTO Market",
     percentageProvision: 15.0,
     flatProvision: 0.0,
-    shippingCost: 6.99,
+    shippingCost: 0.0,
     visible: true,
   },
   {
@@ -12,7 +12,7 @@ const shopData = [
     shopName: "Kaufland",
     percentageProvision: 13.0,
     flatProvision: 0.0,
-    shippingCost: 6.99,
+    shippingCost: 0.0,
     visible: true,
   },
   {

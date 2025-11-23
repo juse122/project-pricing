@@ -6,7 +6,7 @@ const sellingPriceButtonElement = document.querySelector("#vk");
 const inputContainerElement = document.querySelector(".main-input-container");
 const channelContainerElement = document.querySelector(".main-output-container");
 
-const SHIPPING_COST = 6.95;
+const SHIPPING_COST = 6.99;
 
 let firstInputElement;
 let secondInputElement;
